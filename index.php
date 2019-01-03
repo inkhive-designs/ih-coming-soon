@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' href='<?php echo plugin_dir_url(__FILE__).'style.css'; ?>' type='text/css' media='all' />
-    <link rel="stylesheet" href="<?php echo plugin_dir_url(__FILE__).'bootstrap/css/bootstrap.min.css'; ?>" type="text/css" media="all" />
-</head>
-<body class="ih-coming-soon-banner">
-<div id="coming-soon">
-        <div class="banner">
-            <img alt="Coming Soon" src="<?php echo get_theme_mod('ih_coming_soon_banner_image',''); ?>" />
+    <head>
+        <meta charset="utf-8">
+        <title>Site Under Construction</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <?php wp_head(); ?>
+    </head>
+    <body class="ih-coming-soon-banner">
+        <div id="coming-soon">
+            <div class="banner">
+                <img alt="Coming Soon" src="<?php echo wp_get_attachment_url( get_option('banner_id')); ?>" />
+            </div>
+            <div class="count-area col-md-12">
+                <h1>
+                    <?php echo get_option('ihcs_text_input'); ?>
+                </h1>
+                <p id="countdown"></p>
+            </div>
         </div>
-</div>
-<?php if(get_theme_mod('ih_coming_soon_banner_text') !='' ): ?>
-<div class="banner-text">
-    <h3>
-        <?php echo get_theme_mod('ih_coming_soon_banner_text'); ?>
-    </h3>
-</div>
-<?php endif; ?>
-</body>
+        <div class="banner-text">
+            <h3>
+                <?php echo get_option('ihcs_text_input_message'); ?>
+            </h3>
+            <div class="ihcs-cta">
+                <a href="<?php echo get_option('ihcs_text_input_url'); ?>"><?php echo get_option('ihcs_text_input_cta'); ?></a>
+            </div>
+        </div>
+
+    </body>
 </html>
 
